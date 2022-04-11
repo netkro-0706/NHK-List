@@ -16,11 +16,14 @@ let todays_date = ()=>{
     return year+'-'+month+'-'+day;
 }
 
+//area, service, date
 const getProgramList = ()=>{
     let get_url = url+"list/130/g1/"+todays_date()+".json?key="+key;
     let func_name = "ProgramList";
     getDataList(func_name, get_url);
 }
+
+//area, service, genre, date
 const getProgramGenre = ()=>{
     let get_url = url+"genre/130/g1/0000/2022-04-11.json?key="+key;
 
@@ -28,6 +31,7 @@ const getProgramGenre = ()=>{
     getDataList(func_name, get_url);
 }
 
+//area, service, id
 const getProgramInfo = ()=>{
     let get_url = url+"info/130/g1/2022041129370.json?key="+key;
 
@@ -35,6 +39,7 @@ const getProgramInfo = ()=>{
     getDataList(func_name, get_url);
 }
 
+//area, service
 const getNowOnAir = ()=>{
     let get_url = url+"now/130/g1.json?key="+key;
 
