@@ -1,4 +1,5 @@
 /*
+    Information provision :ＮＨＫ
     API Key : JNp74IjTkPGBIzvTv3lGvvh5L1jTYCUW
 
 */
@@ -25,7 +26,7 @@ const getProgramList = ()=>{
 
 //area, service, genre, date
 const getProgramGenre = ()=>{
-    let get_url = url+"genre/130/g1/0000/2022-04-11.json?key="+key;
+    let get_url = url+"genre/130/g1/0000/"+todays_date()+".json?key="+key;
 
     let func_name = "ProgramGenre";
     getDataList(func_name, get_url);
