@@ -1,19 +1,17 @@
 // /*
-//     Youtube
-//     API key : AIzaSyD8_gRa0ld2rScZMZRwA1nnyH5jv98GXgU
 //     NHK ch ID : UCGCZAYq5Xxojl_tSXcVJhiQ
-// 
+//     Information provision : Youtube
 //     Information provision :ＮＨＫ
-//     API Key : JNp74IjTkPGBIzvTv3lGvvh5L1jTYCUW
+//     
 
 // */
 
 let dailyNews = document.querySelector(".daily_news");
 
 // let nhk_url = new URL("https://api.nhk.or.jp/v2/pg/");
-// const key = "JNp74IjTkPGBIzvTv3lGvvh5L1jTYCUW";
+// const nhk_key = process.env.REACT_APP_nhk_key;
 let Youtube_api_url = new URL("https://www.googleapis.com/youtube/v3/search?key=");
-const youtube_key = "AIzaSyD8_gRa0ld2rScZMZRwA1nnyH5jv98GXgU";
+const youtube_key = process.env.REACT_APP_youtube_key;
 
 
 
@@ -71,14 +69,14 @@ let render_live_video = (video)=>{
 
 // //area, service, date
 // const getProgramList = ()=>{
-//     let get_url = nhk_url+"list/130/g1/"+todays_date()+".json?key="+key;
+//     let get_url = nhk_url+"list/130/g1/"+todays_date()+".json?key="+nhk_key;
 //     let func_name = "ProgramList";
 //     getDataList(func_name, get_url);
 // }
 
 // //area, service, genre, date
 // const getProgramGenre = ()=>{
-//     let get_url = nhk_url+"genre/130/g1/0000/"+todays_date()+".json?key="+key;
+//     let get_url = nhk_url+"genre/130/g1/0000/"+todays_date()+".json?key="+nhk_key;
 
 //     let func_name = "ProgramGenre";
 //     getDataList(func_name, get_url);
@@ -86,7 +84,7 @@ let render_live_video = (video)=>{
 
 // //area, service, id
 // const getProgramInfo = ()=>{
-//     let get_url = nhk_url+"info/130/g1/2022041129370.json?key="+key;
+//     let get_url = nhk_url+"info/130/g1/2022041129370.json?key="+nhk_key;
 
 //     let func_name = "ProgramInfo";
 //     getDataList(func_name, get_url);
@@ -94,7 +92,7 @@ let render_live_video = (video)=>{
 
 // //area, service
 // const getNowOnAir = ()=>{
-//     let get_url = nhk_url+"now/130/g1.json?key="+key;
+//     let get_url = nhk_url+"now/130/g1.json?key="+nhk_key;
 
 //     let func_name = "NowOnAir";
 //     getDataList(func_name, get_url);
