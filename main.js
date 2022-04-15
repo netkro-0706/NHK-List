@@ -9,9 +9,9 @@
 let dailyNews = document.querySelector(".daily_news");
 
 // let nhk_url = new URL("https://api.nhk.or.jp/v2/pg/");
-// const nhk_key = process.env.REACT_APP_nhk_key;
+// const nhk_key = keys.nhk_key;
 let Youtube_api_url = new URL("https://www.googleapis.com/youtube/v3/search?key=");
-const youtube_key = process.env.REACT_APP_youtube_key;
+const youtube_key = keys.youtube_key;
 
 
 

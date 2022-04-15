@@ -16,7 +16,7 @@
 # Built Visual Studio Code Extensions
 *.vsix
 
-.env
+api_key.js
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
