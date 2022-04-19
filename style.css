@@ -24,4 +24,64 @@
 .main_section{
     width: 1200px;
     margin: 0 auto;
+    border: 1px solid red;
+    position: relative;
+}
+.weather_wrap{
+    text-align: right;
+    width: 100%;
+    height: 140px;
+}
+.weather_div{
+    text-align: center;
+    float:right;
+}
+
+
+
+.OnAir_div{
+    float: left;
+}
+.OnAir_select_channel{
+    height: 188px;
+}
+
+.OnAir_select_channel div{
+    width: 150px;
+}
+.OnAir_select_channel button{
+    border: 1px solid rgba(156, 156, 156, 0.3);
+    background: none;
+    padding: 5px;
+    margin: 0;
+    width: 100%;
+}
+.OnAir_select_channel button:hover{
+    cursor: pointer;
+}
+
+
+.show_OnAir{
+    width: 1048px;
+    height: 190px;
+    border: 1px solid red;
+}
+.show_OnAir:hover{
+    background: rgba(198, 243, 255, 0.5);
+}
+
+.OnAir_img img{
+    width: 185px;
+    height: 190px;
+    
+}
+.OnAir_info{
+    width: 850px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+
+.show_item{
+    float: left;
 }
