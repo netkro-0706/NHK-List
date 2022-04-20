@@ -16,7 +16,6 @@
 # Built Visual Studio Code Extensions
 *.vsix
 
-api_key.js
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files

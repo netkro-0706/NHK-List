@@ -12,24 +12,24 @@
 <body>
   <div class="main_wrap">
     <header class="HTML_header">
-      <a href="#" class="header_logo">
+      <a href="index.html" class="header_logo">
         <h2>NHK List</h2>
       </a>
       <div class="genre_wrap">
         <nav class="genre_nav">
           <ul class="genre_ul">
-            <li class="genre_item">ニュース</li>
-            <li class="genre_item">スポーツ</li>
+            <li class="genre_item" value="0000">ニュース</li>
+            <li class="genre_item" value="0100">スポーツ</li>
             <!-- <li class="genre_item">ワイドショー</li> -->
-            <li class="genre_item">ドラマ</li>
-            <li class="genre_item">音楽</li>
-            <li class="genre_item">バラエティ</li>
-            <li class="genre_item">映画</li>
-            <li class="genre_item">アニメ</li>
+            <li class="genre_item" value="0300">ドラマ</li>
+            <li class="genre_item" value="0409">音楽</li>
+            <li class="genre_item" value="0502">バラエティ</li>
+            <li class="genre_item" value="0600">映画</li>
+            <li class="genre_item" value="0700">アニメ</li>
             <!-- <li class="genre_item">ドキュメンタリー</li> -->
             <!-- <li class="genre_item">公演</li> -->
             <!-- <li class="genre_item">趣味</li> -->
-            <li class="genre_item">福祉</li>
+            <li class="genre_item" value="1100">福祉</li>
           </ul>
         </nav>
       </div>
@@ -186,88 +186,10 @@
           "#100カメ"
         ]
 
-        Now On Air API
-            지역, 서비스 지정시 현재 제공중인 방송을 취득
-
-        "g1": {
-      "previous": {
-        "id": "2022041120248",
-        "event_id": "20248",
-        "start_time": "2022-04-11T16:05:00+09:00",
-        "end_time": "2022-04-11T16:30:00+09:00",
-        "area": {
-          "name": "東京"
-        },
-        "service": {
-          "id": "g1",
-          "name": "ＮＨＫ総合１",
-          "logo_s": {
-            "url": "//www.nhk.or.jp/common/img/media/gtv-100x50.png",
-            "width": "100",
-            "height": "50"
-          },
-          "logo_m": {
-          },
-          "logo_l": {
-          }
-        },
-        "title": "趣味の園芸　やさいの時間　さすてな菜園　プランター「壁面にサラダバー」",
-        "subtitle": "新企画スタート。畑がなくても初心者でも、庭やベランダで気軽に楽しめるアイデア菜園。人や環境・社会にやさしい「サステナブルな菜園ライフ」も考えます。",
-        
-      },
-      "present": {
-        "id": "2022041120251",
-        "event_id": "20251",
-        "start_time": "2022-04-11T16:30:00+09:00",
-        "end_time": "2022-04-11T16:45:00+09:00",
-        "area": {
-          "id": "130",
-        },
-        "service": {
-          "id": "g1",
-          "name": "ＮＨＫ総合１",
-          "logo_s": {
-            "url": "//www.nhk.or.jp/common/img/media/gtv-100x50.png",
-            "width": "100",
-            "height": "50"
-          },
-          "logo_m": {
-          },
-          "logo_l": {
-          }
-        },
-        "title": "【連続テレビ小説】純ちゃんの応援歌（１２９）",
-        "subtitle": "甲子園球場近くに旅館を開業し、「高校球児の母」と呼ばれる女将（おかみ）として活躍する純子を、涙と笑いとペーソスで描く青春奮戦記。１９８８年放送の連続テレビ小説。",
-       
-      },
-      "following": {
-        "id": "2022041120252",
-        "event_id": "20252",
-        "start_time": "2022-04-11T16:45:00+09:00",
-        "end_time": "2022-04-11T17:00:00+09:00",
-        "area": {
-          "name": "東京"
-        },
-        "service": {
-          "name": "ＮＨＫ総合１",
-          "logo_s": {
-            "url": "//www.nhk.or.jp/common/img/media/gtv-100x50.png",
-            "width": "100",
-            "height": "50"
-          },
-          "logo_m": {
-          },
-          "logo_l": {
-          }
-        },
-        "title": "【連続テレビ小説】純ちゃんの応援歌（１３０）",
-        "subtitle": "甲子園球場近くに旅館を開業し、「高校球児の母」と呼ばれる女将（おかみ）として活躍する純子を、涙と笑いとペーソスで描く青春奮戦記。１９８８年放送の連続テレビ小説。",
-        
-
 
     -->
-
   <script src="api_key.js"></script>
+  <script src="weather.js"></script>
   <script src="main.js"></script>
 </body>
 
