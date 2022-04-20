@@ -16,6 +16,7 @@ let Youtube_api_url = new URL("https://www.googleapis.com/youtube/v3/search?key=
 const youtube_key = keys.youtube_key;
 let weather_api_url = new URL("https://weather.tsukumijima.net/api/forecast/city/");
 
+
 const weather_region = {
     札幌 : "016010",
     東京 : "130010",
@@ -43,7 +44,7 @@ let getweather = async (region_id) => {
         .then((res) => res.json())
         .catch((error) => console.log("getweather : ", error));
 
-    console.log("getweather data", data);
+    //console.log("getweather data", data);
     render_weather(data);
 }
 
@@ -131,11 +132,12 @@ const getProgramGenre = ()=>{
 }
 
 //area, service, id
-const getProgramInfo = ()=>{
-    let get_url = nhk_url+"info/130/g1/2022041129370.json?key="+nhk_key;
+const getProgramInfo = async(id, channel)=>{
+    let get_url = nhk_url+"info/130/"+channel+"/"+id+".json?key="+nhk_key;
 
     let func_name = "ProgramInfo";
-    let data = getDataList(func_name, get_url);
+    let data = await getDataList(func_name, get_url);
+    return data;
 }
 
 //area, service
@@ -156,25 +158,29 @@ const getDataList = async(func_name, get_url)=>{
     return data;
 }
 
-const render_OnAir = (live_data, channel)=>{
+const render_OnAir = async(live_data, channel)=>{
+    
     let live_info = live_data.nowonair_list[channel].present;
+
+    let OnAir_link = await getProgramInfo(live_info.id, channel);
     showOnAir.innerHTML = `
-    <div class="OnAir_img show_item">
-        <img src="${live_info.service.logo_l.url}">
-    </div>
-    <div class="OnAir_info show_item">
-        <div class="OnAir_castingTime OnAir_item">${live_info.start_time.substring(11,16)} ~ ${live_info.end_time.substring(11,16)}</div>
-        <div class="OnAir_title OnAir_item">${live_info.title}</div>
-        <div class="OnAir_subtitle OnAir_item">${live_info.subtitle}</div>
-    </div>
+    <a href="${OnAir_link.list[channel][0].program_url}" target="_blank">
+        <div class="OnAir_img show_item">
+            <img src="${live_info.service.logo_l.url}">
+        </div>
+        <div class="OnAir_info show_item">
+            <div class="OnAir_castingTime OnAir_item">${live_info.start_time.substring(11,16)} ~ ${live_info.end_time.substring(11,16)}</div>
+            <div class="OnAir_title OnAir_item">${live_info.title}</div>
+            <div class="OnAir_subtitle OnAir_item">${live_info.subtitle}</div>
+        </div>
+    </a>
     `
 }
 
 
 
 
-
-getNowOnAir(`g1`);
+getNowOnAir("g1");
 spreadRegionToWether();
 
 combineYoutube_url();
