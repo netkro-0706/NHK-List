@@ -52,7 +52,7 @@ let render_weather = (weather_data)=>{
     `   <div class="weather_div">
             <div class="weather_region">${weather_data.location.city}</div>
             <div class="weather_img">
-                <img src="${weather_data.forecasts[0].image.url}">
+                <img class="weather_img_src" src="${weather_data.forecasts[0].image.url}">
             </div>
             <div class="weather_temp">
                 ${weather_data.forecasts[0].temperature.max.celsius ? weather_data.forecasts[0].temperature.max.celsius+"°C" : "-"}
@@ -97,7 +97,7 @@ let getYoutube_video = async (url) => {
 let render_live_video = (video) => {
 
     dailyNews.innerHTML =
-        `<iframe src="https://www.youtube.com/embed/${video}" width="700"
+        `<iframe class="youtube_news" src="https://www.youtube.com/embed/${video}" width="700"
     height="500" frameborder="0"></iframe>
     `;
 }
@@ -163,9 +163,9 @@ const render_OnAir = (live_data, channel)=>{
         <img src="${live_info.service.logo_l.url}">
     </div>
     <div class="OnAir_info show_item">
-        <div class="OnAir_castingTime">${live_info.start_time.substring(11,16)} ~ ${live_info.end_time.substring(11,16)}</div>
-        <div class="OnAir_title">${live_info.title}</div>
-        <div class="OnAir_subtitle">${live_info.subtitle}</div>
+        <div class="OnAir_castingTime OnAir_item">${live_info.start_time.substring(11,16)} ~ ${live_info.end_time.substring(11,16)}</div>
+        <div class="OnAir_title OnAir_item">${live_info.title}</div>
+        <div class="OnAir_subtitle OnAir_item">${live_info.subtitle}</div>
     </div>
     `
 }
@@ -177,7 +177,7 @@ const render_OnAir = (live_data, channel)=>{
 getNowOnAir(`g1`);
 spreadRegionToWether();
 
-// combineYoutube_url();
+combineYoutube_url();
 
 // getProgramList();
 // getProgramGenre();
