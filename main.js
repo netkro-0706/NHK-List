@@ -8,6 +8,7 @@
 
 let dailyNews = document.querySelector(".daily_news");
 let showOnAir = document.querySelector(".show_OnAir");
+let mainGenre = document.querySelector(".main_genre");
 let genreSelect = document.querySelectorAll(".genre_item");
 
 let nhk_url = new URL("https://api.nhk.or.jp/v2/pg/");
@@ -131,9 +132,9 @@ const render_OnAir = async (live_data, channel) => {
 
     let OnAir_link = await getProgramInfo(live_info.id, channel);
     showOnAir.innerHTML = `
-    <a href="${OnAir_link.list[channel][0].program_url}" target="_blank">
+    <a href="${"http://"+(OnAir_link.list[channel][0].program_url).substring(2)}" target="_blank">
         <div class="OnAir_img show_item">
-            <img src="${live_info.service.logo_l.url}">
+            <img src="${"http://"+(live_info.service.logo_l.url).substring(2)}">
         </div>
         <div class="OnAir_info show_item">
             <div class="OnAir_castingTime OnAir_item">${live_info.start_time.substring(11, 16)} ~ ${live_info.end_time.substring(11, 16)}</div>
@@ -145,8 +146,11 @@ const render_OnAir = async (live_data, channel) => {
 }
 
 genreSelect.forEach((genre) => genre.addEventListener("click", (event) => {
-    location.href="genre.html";
     getProgramGenre(event);
+    location.href="genre.html";
+    // mainGenre.innerHTML = `
+
+    // `;
 }));
 
 

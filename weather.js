@@ -1,45 +1,49 @@
+let weatherWrap = document.querySelector(".weather_wrap")
 
-
-let weatherWrap = document.querySelector(".weather_wrap");
-let weather_api_url = new URL("https://weather.tsukumijima.net/api/forecast/city/");
-
-const weather_region = {
-    札幌: "016010",
-    東京: "130010",
-    大阪: "270000",
-    福岡: "400010"
+const weather_icon = {
+    Rain: '<i class="fa-solid fa-cloud-rain fa-2xl"></i>',
+    Clouds: '<i class="fa-solid fa-cloud fa-2xl"></i>',
+    Clear: '<i class="fa-solid fa-sun fa-2xl"></i>',
+    Snow: '<i class="fa-solid fa-snowflake fa-2xl"></i>'
 }
 
-let spreadRegionToWether = () => {
-    Object.keys(weather_region).forEach(region => {
-        getweather(weather_region[region]);
-    });
+const tokyoLocation = {
+    lat: 35.6684415,
+    lon: 139.6007818
 }
-let getweather = async (region_id) => {
 
-    let data = await fetch(weather_api_url + region_id)
+const LocationCurrent = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let { latitude, longitude } = position.coords;
+            getweather(latitude, longitude);
+        });
+    } else {
+        getweather(tokyoLocation.lat, tokyoLocation.lon);
+    }
+}
+
+let getweather = async (lat, lon) => {
+    let url = new URL(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${keys.weather_key}`);
+    let data = await fetch(url)
         .then((res) => res.json())
         .catch((error) => console.log("getweather : ", error));
 
-    //console.log("getweather data", data);
     render_weather(data);
 }
 
 let render_weather = (weather_data) => {
-    weatherWrap.innerHTML +=
-        `   <div class="weather_div">
-            <div class="weather_region">${weather_data.location.city}</div>
-            <div class="weather_img">
-                <img class="weather_img_src" src="${weather_data.forecasts[0].image.url}">
+    console.log("weather_data.weather[0].main : ", weather_data.weather[0].main);
+    weatherWrap.innerHTML = `
+        <div class="weather_div">
+            <div class="weather_text">
+                <div>${weather_data.name}</div>
+                <div>${weather_data.main.temp}°C</div>
             </div>
-            <div class="weather_temp">
-                ${weather_data.forecasts[0].temperature.max.celsius ? weather_data.forecasts[0].temperature.max.celsius + "°C" : "-"}
-                / ${weather_data.forecasts[0].temperature.min.celsius ? weather_data.forecasts[0].temperature.min.celsius + "°C" : "-"}
-            </div>
-            <div class="weather_precip">${weather_data.forecasts[0].chanceOfRain.T12_18 ? weather_data.forecasts[0].chanceOfRain.T12_18 : "-"}</div>
+            <div class="weather_icon">${weather_icon[weather_data.weather[0].main]}</div>
         </div>
     `
 }
 
 
-spreadRegionToWether();
+LocationCurrent();

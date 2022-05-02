@@ -30,6 +30,9 @@ body, .main_wrap{
     list-style: none;
     margin-right: 8px;
 }
+.genre_item:hover{
+    cursor: pointer;
+}
 .main_div{
     height: 100%;
     display: flex;
@@ -48,17 +51,25 @@ body, .main_wrap{
     
 }
 .weather_wrap{
+    float: left;
+    top: 0;
+    position: absolute;
     width: 100%;
-    display: flex;
+    display: block;
     flex-direction: column;
 }
 .weather_div{
     text-align: center;
-    margin-top: 10px;
-    border-bottom: 1px solid rgba(158, 158, 158, 0.4);
+    display: flex;
+    position: absolute;
+    right: 10px;
 }
 .weather_div>div{
     font-size: 13px;
+    margin-right: 5px;
+}
+.weather_icon i{
+    padding-top: 18px;
 }
 .weather_img_src{
     width: 50px;
@@ -132,4 +143,13 @@ body, .main_wrap{
 
 a{
     text-decoration: none;
+}
+
+
+
+
+
+
+.main_genre{
+    background: rgb(57, 57, 57) !important;
 }
