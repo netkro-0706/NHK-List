@@ -92,13 +92,9 @@ const render_OnAir = async (live_data, channel) => {
         <div class="OnAir_img show_item">
             <img src="${"http://" + (live_info.service.logo_l.url).substring(2)}">
         </div>
-        <div class="OnAir_info show_item">
-            <div class="OnAir_castingTime OnAir_item">${live_info.start_time.substring(11, 16)} ~ ${live_info.end_time.substring(11, 16)}</div>
-            <div class="OnAir_title OnAir_item">${live_info.title}</div>
-            <div class="OnAir_subtitle OnAir_item">${live_info.subtitle}</div>
-        </div>
-    </a>
-    `
+        `;
+
+    mainGenre.innerHTML = resultHTML;
 }
 
 const render_Programs = () => {
@@ -132,6 +128,5 @@ genreSelect.forEach((genre) => genre.addEventListener("click", (event) => {
     getProgramGenre(event);
     window.open("genre.html", "_blank");
 }));
-
 
 getNowOnAir("g1");
