@@ -1,4 +1,5 @@
-let weatherWrap = document.querySelector(".weather_wrap")
+const weather = "eaa6d0dcc2bafe5d8b0418bf276a4b45";
+let weatherWrap = document.querySelector(".weather_wrap");
 
 const weather_icon = {
     Rain: '<i class="fa-solid fa-cloud-rain fa-2xl"></i>',
@@ -24,7 +25,7 @@ const LocationCurrent = () => {
 }
 
 let getweather = async (lat, lon) => {
-    let url = new URL(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${keys.weather_key}`);
+    let url = new URL(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${weather}`);
     let data = await fetch(url)
         .then((res) => res.json())
         .catch((error) => console.log("getweather : ", error));
@@ -33,7 +34,6 @@ let getweather = async (lat, lon) => {
 }
 
 let render_weather = (weather_data) => {
-    console.log("weather_data.weather[0].main : ", weather_data.weather[0].main);
     weatherWrap.innerHTML = `
         <div class="weather_div">
             <div class="weather_text">
