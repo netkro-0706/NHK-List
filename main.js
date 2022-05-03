@@ -73,7 +73,7 @@ const getNowOnAir = async (channel) => {
 }
 
 const getDataList = async (func_name, get_url) => {
-    let data = await fetch(get_url)
+    let data = await fetch(get_url, {headers: {'Access-Control-Allow-Origin': '*'}})
         .then((response) => response.json())
         .catch((error) => console.log(error));
 
