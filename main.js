@@ -73,7 +73,7 @@ const getNowOnAir = async (channel) => {
 }
 
 const getDataList = async (func_name, get_url) => {
-    let data = await fetch(get_url, {headers: {'Access-Control-Allow-Origin': '*'}})
+    let data = await fetch(get_url, {headers: {'Access-Control-Allow-Origin':'https://netkro-0706.github.io/NHK-List/'}})
         .then((response) => response.json())
         .catch((error) => console.log(error));
 
