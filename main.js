@@ -10,7 +10,7 @@ let showOnAir = document.querySelector(".show_OnAir");
 let mainGenre = document.querySelector(".main_genre");
 let genreSelect = document.querySelectorAll(".genre_item");
 
-let nhk_url = new URL("https://api.nhk.or.jp/v2/pg/");
+let nhk_url = new URL("https://cors-anywhere.herokuapp.com/https://api.nhk.or.jp/v2/pg/");
 let resultHTML, programInfoList;
 
 const NHK_channel = {
@@ -73,7 +73,7 @@ const getNowOnAir = async (channel) => {
 }
 
 const getDataList = async (func_name, get_url) => {
-    let data = await fetch(get_url, {headers: {'Access-Control-Allow-Origin':'https://netkro-0706.github.io/NHK-List/'}})
+    let data = await fetch(get_url, {headers: {'Access-Control-Allow-Origin':'*'}})
         .then((response) => response.json())
         .catch((error) => console.log(error));
 
